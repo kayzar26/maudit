@@ -54,7 +54,7 @@ export default function IndependentAuditPage() {
                   </h1>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    An independent audit is referred to as an examination of the financial records, accounts, accounting practices, business transactions, and internal controls of a generous nonprofit by the side of an "independent" auditor. Are you looking for the best quality of independent audit services in Dubai? Majed Alshamsi Auditing is the Top Audit Company in UAE proposing all kinds of audit services in Dubai. Our services comprise:
+                    An independent audit is referred to as an examination of the financial records, accounts, accounting practices, business transactions, and internal controls of a generous nonprofit by the side of an &quot;independent&quot; auditor. Are you looking for the best quality of independent audit services in Dubai? Majed Alshamsi Auditing is the Top Audit Company in UAE proposing all kinds of audit services in Dubai. Our services comprise:
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">

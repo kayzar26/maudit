@@ -9,25 +9,25 @@ const TEAM_MEMBERS = [
     id: 1,
     name: "Majed Ali Ahmed Omran Alshamsi",
     designation: "Founder / CEO",
-    imgUrl: "/img/team/1.png",
+    imgUrl: "/img/team/majed-ali.png",
   },
   {
     id: 2,
     name: "Ali Majed ALi Ahmed Alshamsi",
     designation: "Director / COO",
-    imgUrl: "/img/team/2.png",
+    imgUrl: "/img/team/ali-majed.png",
   },
   {
     id: 3,
     name: "Jayesh Donda",
     designation: "Audit Manager",
-    imgUrl: "/img/team/3.png",
+    imgUrl: "/img/team/jayesh-donda-v2.png",
   },
   {
     id: 4,
     name: "Raheesh Elavanthra",
     designation: "Senior Manager",
-    imgUrl: "/img/team/4.png",
+    imgUrl: "/img/team/raheesh-elavanthra.png",
   },
 ];
 
@@ -68,6 +68,7 @@ export function TeamSection({ className = "" }: { className?: string }) {
                       src="/img/overlay/green-stipes-pattern.png"
                       alt="Pattern"
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       className="object-cover"
                     />
                   </div>
@@ -76,6 +77,7 @@ export function TeamSection({ className = "" }: { className?: string }) {
                     src={member.imgUrl}
                     alt={member.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                     className="object-cover z-0"
                   />
                 </div>

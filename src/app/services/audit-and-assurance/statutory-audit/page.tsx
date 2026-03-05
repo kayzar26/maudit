@@ -54,7 +54,7 @@ export default function StatutoryAuditPage() {
                   </h1>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    A statutory audit is also called a financial audit. It is one of the special kinds of audits that should be done according to the statutes relevant to the entity. Majed Alshamsi Auditing offers trustworthy statutory audit services in the UAE. A statutory audit is required for government institutions to check and assess their performance. A statutory audit is a lawfully necessary audit that must be completed to evaluate the company's financial stand and fiscal records.
+                    A statutory audit is also called a financial audit. It is one of the special kinds of audits that should be done according to the statutes relevant to the entity. Majed Alshamsi Auditing offers trustworthy statutory audit services in the UAE. A statutory audit is required for government institutions to check and assess their performance. A statutory audit is a lawfully necessary audit that must be completed to evaluate the company&apos;s financial stand and fiscal records.
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">

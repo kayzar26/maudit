@@ -11,7 +11,7 @@ import { TestimonialSection } from "@/components/front/testimonial/TestimonialSe
 import { ContactForm } from "@/components/front/form/ContactForm";
 import Image from "next/image";
 import Link from "next/link";
-import { MoveRight } from "lucide-react";
+// import { MoveRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us | Maudit | Majed Alshamsi Auditing",

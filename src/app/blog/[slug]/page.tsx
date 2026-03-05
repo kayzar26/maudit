@@ -1,157 +1,153 @@
-import React from "react";
-import type { Metadata } from "next";
+import { getPostBySlug, getAllPostsMeta } from "@/lib/mdx";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FadeIn } from "@/components/animations/FadeIn";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, User, ArrowLeft } from "lucide-react";
-import { getPostBySlug, getAllSlugs } from "@/lib/blog";
-import { notFound } from "next/navigation";
+import { Calendar, Clock, User, ArrowLeft } from "lucide-react";
 
-// Generate static pages for all blog posts at build time
-export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const posts = await getAllPostsMeta();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
-type Params = Promise<{ slug: string }>;
-
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) return { title: "Post Not Found | Maudit" };
-
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const post = await getPostBySlug(resolvedParams.slug);
+  
+  if (!post) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+  
   return {
-    title: `${post.title} | Maudit`,
-    description: post.excerpt || `Read "${post.title}" at Majed Alshamsi Auditing.`,
+    title: `${post.meta.title} | Maudit`,
+    description: post.meta.excerpt,
+    openGraph: {
+      title: post.meta.title,
+      description: post.meta.excerpt,
+      type: "article",
+      publishedTime: post.meta.date,
+      authors: [post.meta.author],
+      images: [
+        {
+          url: post.meta.featuredImage || "/img/about/hero-side-img.png",
+          width: 1200,
+          height: 630,
+          alt: post.meta.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.meta.title,
+      description: post.meta.excerpt,
+      images: [post.meta.featuredImage || "/img/about/hero-side-img.png"],
+    },
   };
 }
 
-export default async function BlogSinglePage({ params }: { params: Params }) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const post = await getPostBySlug(resolvedParams.slug);
+  
+  if (!post) {
+    notFound();
+  }
 
-  if (!post) notFound();
+  // JSON-LD Structured Data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.meta.title,
+    image: [
+      `https://maudit.ae${post.meta.featuredImage || "/img/about/hero-side-img.png"}`
+    ],
+    datePublished: new Date(post.meta.date).toISOString(),
+    author: [{
+      "@type": "Person",
+      name: post.meta.author,
+    }],
+    publisher: {
+      "@type": "Organization",
+      name: "Majed Alshamsi Auditing",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://maudit.ae/img/logo/al-shamsi-logo.png"
+      }
+    },
+    description: post.meta.excerpt,
+  };
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
       
-      <main className="flex-grow pt-32 pb-20">
-        {/* Breadcrumb Area */}
-        <section className="bg-thm text-white py-16 relative overflow-hidden">
-          <div className="absolute inset-0 z-0 opacity-10">
-            <Image src="/img/overlay/grain.png" alt="texture" fill className="object-cover" />
+      <main className="flex-grow">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
+        {/* Hero Section */}
+        <section className="relative -mt-[80px] pt-48 pb-24 md:pb-32 bg-[#0a1128] overflow-hidden flex items-center min-h-[50vh]">
+          <div className="absolute inset-0 z-0">
+             <Image src="/img/overlay/about-glow-bg.png" alt="Glow Background" fill className="object-cover opacity-60" />
           </div>
-          <div className="container mx-auto px-4 max-w-5xl relative z-10">
-            <FadeIn yOffset={20}>
-              <h1 className="text-3xl md:text-5xl font-bold uppercase tracking-wide mb-4 max-w-4xl leading-tight">
-                {post.title}
-              </h1>
-              <div className="flex flex-wrap items-center text-sm font-medium text-white/70 uppercase tracking-widest gap-2">
-                <span>Home</span>
-                <span>/</span>
-                <Link href="/blog" className="hover:text-primary transition-colors">Our Blog</Link>
-                <span>/</span>
-                <span className="text-primary truncate max-w-[200px] md:max-w-xs">{post.title}</span>
-              </div>
-            </FadeIn>
+          
+          <div className="absolute bottom-0 right-0 z-0 opacity-20">
+            <Image src="/img/overlay/wavy-lines.png" alt="Waves" width={400} height={300} />
+          </div>
+
+          <div className="container mx-auto px-4 max-w-4xl relative z-10 text-white text-center">
+            <Link href="/blog" className="inline-flex items-center text-primary hover:text-white transition-colors mb-8 font-semibold tracking-wide uppercase text-sm">
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Blog
+            </Link>
+            
+            <div className="flex justify-center flex-wrap gap-4 mb-6 text-sm text-gray-300">
+              <span className="flex items-center bg-white/10 px-3 py-1 rounded-full"><Calendar className="w-4 h-4 mr-2" /> {new Date(post.meta.date).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span className="flex items-center bg-white/10 px-3 py-1 rounded-full"><Clock className="w-4 h-4 mr-2" /> {post.meta.readingTime}</span>
+              <span className="flex items-center bg-white/10 px-3 py-1 rounded-full"><User className="w-4 h-4 mr-2" /> {post.meta.author}</span>
+            </div>
+            
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black uppercase leading-tight mb-6">
+              {post.meta.title}
+            </h1>
+            
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              {post.meta.excerpt}
+            </p>
           </div>
         </section>
 
-        {/* Content Area — Full Width, No Sidebar */}
-        <section className="py-20">
-          <div className="container mx-auto px-4 max-w-5xl">
-            
-            {/* Back to Blog Link */}
-            <FadeIn delay={0.1} yOffset={15}>
-              <Link href="/blog" className="inline-flex items-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm mb-10 hover:opacity-80 transition-opacity">
-                <ArrowLeft size={18} />
-                Back to all articles
-              </Link>
-            </FadeIn>
-
-            {/* Featured Image */}
-            <FadeIn delay={0.2} yOffset={30}>
-              <div className="w-full h-[300px] md:h-[500px] relative rounded-3xl overflow-hidden shadow-2xl mb-10">
-                <Image src={post.featured_image} alt={post.title} fill className="object-cover" />
+        {/* Article Content */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 max-w-3xl">
+            {post.meta.featuredImage && (
+              <div className="relative w-full h-[400px] md:h-[500px] mb-16 rounded-[24px] overflow-hidden shadow-2xl -mt-40 z-20 border-4 border-white">
+                <Image src={post.meta.featuredImage} alt={post.meta.title} fill className="object-cover" priority />
               </div>
-            </FadeIn>
-
-            {/* Article Meta Info */}
-            <FadeIn delay={0.3} yOffset={20}>
-              <div className="flex flex-wrap items-center gap-4 text-sm md:text-base font-bold uppercase tracking-wider mb-10 pb-6 border-b border-gray-200">
-                <span className="bg-primary text-thm px-3 py-1.5 rounded-md">
-                  {post.category}
-                </span>
-                <div className="flex items-center gap-2 text-gray-500">
-                  <Calendar className="w-5 h-5 text-primary" />
-                  {post.date}
-                </div>
-                <span className="hidden md:block text-gray-300">|</span>
-                <div className="flex items-center gap-2 text-gray-500">
-                  <User className="w-5 h-5 text-primary" />
-                  {post.author}
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Article Body Content — Clean, readable typography */}
-            <FadeIn delay={0.4} yOffset={20}>
-              <div 
-                className="
-                  prose prose-lg md:prose-xl max-w-none
-                  prose-p:text-gray-700 prose-p:leading-[1.85] prose-p:mb-7
-
-                  prose-headings:font-extrabold prose-headings:tracking-tight
-                  prose-h2:text-3xl prose-h2:text-thm prose-h2:mt-14 prose-h2:mb-6 prose-h2:uppercase
-                  prose-h3:text-2xl prose-h3:text-thm prose-h3:mt-10 prose-h3:mb-4
-
-                  prose-strong:text-gray-900 prose-strong:font-bold
-
-                  prose-blockquote:bg-green-50 prose-blockquote:border-l-4 prose-blockquote:border-primary 
-                  prose-blockquote:px-8 prose-blockquote:py-6 prose-blockquote:rounded-r-2xl 
-                  prose-blockquote:text-xl prose-blockquote:font-medium prose-blockquote:not-italic 
-                  prose-blockquote:my-10 prose-blockquote:text-gray-800
-
-                  prose-ul:my-6 prose-ul:pl-6
-                  prose-ol:my-6 prose-ol:pl-6
-                  prose-li:text-gray-700 prose-li:leading-relaxed prose-li:mb-2
-                  prose-li:marker:text-primary
-
-                  prose-a:text-primary prose-a:underline prose-a:font-semibold
-
-                  prose-img:rounded-2xl prose-img:shadow-xl prose-img:w-full prose-img:my-8
-
-                  prose-hr:my-14 prose-hr:border-gray-200
-
-                  prose-figure:my-10
-                  prose-figcaption:text-center prose-figcaption:text-gray-400 prose-figcaption:text-sm prose-figcaption:mt-3
-                "
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
-            </FadeIn>
-
-            {/* Footer Tags */}
-            {post.tags.length > 0 && (
-              <FadeIn delay={0.5} yOffset={20}>
-                <div className="mt-16 pt-8 border-t border-gray-200 flex flex-col md:flex-row gap-6 md:items-center">
-                  <span className="font-bold text-thm uppercase tracking-widest text-sm">Tags:</span>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag, idx) => (
-                      <span key={idx} className="bg-green-50 text-thm px-4 py-1.5 rounded-full text-sm font-bold border border-green-100 hover:bg-thm hover:text-white transition-colors cursor-pointer">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </FadeIn>
             )}
-
+            
+            <article className="prose prose-lg prose-headings:font-black prose-headings:uppercase prose-headings:text-thm prose-a:text-primary hover:prose-a:text-thm transition-colors max-w-none prose-img:rounded-2xl">
+              {post.content}
+            </article>
+            
+            {/* Tags / Categories */}
+            <div className="mt-16 pt-8 border-t border-gray-100">
+              <div className="flex items-center gap-4">
+                <span className="font-bold text-thm uppercase tracking-widest text-sm">Category:</span>
+                <span className="bg-zinc-100 text-thm px-4 py-2 rounded-lg text-sm font-semibold">{post.meta.category}</span>
+              </div>
+            </div>
           </div>
         </section>
       </main>
-
+      
       <Footer />
     </div>
   );

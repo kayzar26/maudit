@@ -58,7 +58,7 @@ export default function FixedAssetManagementPage() {
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    It's not simple to handle the fixed assets. The progress of assets and adding up more must be properly recorded. Several businesses face great challenges in tracking the location, quantity, maintenance, condition, and assets of depreciation.
+                    It&apos;s not simple to handle the fixed assets. The progress of assets and adding up more must be properly recorded. Several businesses face great challenges in tracking the location, quantity, maintenance, condition, and assets of depreciation.
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">

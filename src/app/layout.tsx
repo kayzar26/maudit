@@ -40,10 +40,40 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Majed Alshamsi Auditing",
+    "url": "https://maudit.ae",
+    "logo": "https://maudit.ae/img/logo/al-shamsi-logo.png",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+97142225774",
+        "contactType": "customer service",
+        "areaServed": "AE",
+        "availableLanguage": "Local"
+      }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/malshamsiaudit/",
+      "https://x.com/maudit_ae",
+      "https://www.instagram.com/maudit.ae/",
+      "https://ae.linkedin.com/company/mauditae"
+    ]
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+      </head>
       <body
         className={`${dmSans.variable} ${plusJakartaSans.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>

@@ -159,7 +159,7 @@ export default function AuditAssurancePage() {
                     Collaborate with Us for the Best Audit and Assurance Services
                   </h3>
                   <p className="text-lg leading-relaxed mb-12">
-                    In Dubai, the audit isn't a number game any longer. It is more than reports or approvals that offer your company's complete picture. As one of any business's fundamental services, it ensures your accuracy per UAE's laws and IFRS (International Financial Reporting Standards). So, consulting us for audit and assurance services in UAE is imperative.
+                    In Dubai, the audit isn&apos;t a number game any longer. It is more than reports or approvals that offer your company&apos;s complete picture. As one of any business&apos;s fundamental services, it ensures your accuracy per UAE&apos;s laws and IFRS (International Financial Reporting Standards). So, consulting us for audit and assurance services in UAE is imperative.
                   </p>
 
                   <h4 className="text-xl font-bold text-thm mb-6">
@@ -172,11 +172,11 @@ export default function AuditAssurancePage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-16">
                     <div className="bg-white border-l-4 border-primary shadow-sm p-6 rounded-r-lg">
                       <h4 className="font-bold text-thm mb-3 uppercase tracking-wide">Internal Audit</h4>
-                      <p className="text-gray-600">The activity performed by the company's employees or people outside the team is the internal audit.</p>
+                      <p className="text-gray-600">The activity performed by the company&apos;s employees or people outside the team is the internal audit.</p>
                     </div>
                     <div className="bg-white border-l-4 border-primary shadow-sm p-6 rounded-r-lg">
                       <h4 className="font-bold text-thm mb-3 uppercase tracking-wide">External Audit</h4>
-                      <p className="text-gray-600">It is the company's audit performed by any external party. The third party isn't a member of the company.</p>
+                      <p className="text-gray-600">It is the company&apos;s audit performed by any external party. The third party isn&apos;t a member of the company.</p>
                     </div>
                     <div className="bg-white border-l-4 border-primary shadow-sm p-6 rounded-r-lg">
                       <h4 className="font-bold text-thm mb-3 uppercase tracking-wide">Statutory Audit</h4>
@@ -184,7 +184,7 @@ export default function AuditAssurancePage() {
                     </div>
                     <div className="bg-white border-l-4 border-primary shadow-sm p-6 rounded-r-lg">
                       <h4 className="font-bold text-thm mb-3 uppercase tracking-wide">VAT Audit</h4>
-                      <p className="text-gray-600">It's the evaluation of the ledgers as well as trial balances of an establishment by certified tax agents.</p>
+                      <p className="text-gray-600">It&apos;s the evaluation of the ledgers as well as trial balances of an establishment by certified tax agents.</p>
                     </div>
                   </div>
 

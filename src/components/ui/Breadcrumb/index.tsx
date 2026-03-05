@@ -8,8 +8,23 @@ interface BreadcrumbProps {
 }
 
 export function Breadcrumb({ title, pages }: BreadcrumbProps) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": pages.map((page, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": page.name,
+      "item": `https://maudit.ae${page.url}`
+    }))
+  };
+
   return (
     <div className="bg-thm text-white py-16 md:py-24 relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Decorative Glow Elements */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full pointer-events-none" />

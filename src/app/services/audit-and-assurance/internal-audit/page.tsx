@@ -86,7 +86,7 @@ export default function InternalAuditPage() {
                   </h3>
                   <ul className="flex flex-col gap-3 text-lg list-disc ml-8 mb-10">
                     <li>Achieving effectiveness as well as the value of all business operations.</li>
-                    <li>Make sure that the company's assets are safeguarded.</li>
+                    <li>Make sure that the company&apos;s assets are safeguarded.</li>
                     <li>Creating on-time financial reporting with great accuracy to increase the trustworthiness of the company.</li>
                     <li>Make sure that all business aspects follow the laws and regulations.</li>
                   </ul>

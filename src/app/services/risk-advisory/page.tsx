@@ -5,7 +5,7 @@ import { ServiceSidebar } from "@/components/front/service/ServiceSidebar";
 import { ButtonBase } from "@/components/ui/ButtonBase";
 import { Check } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 

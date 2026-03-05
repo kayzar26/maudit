@@ -25,7 +25,7 @@ export function Footer() {
                 alt="Al Shamsi Auditing Logo"
                 width={200}
                 height={60}
-                className="mb-6 brightness-0 invert" 
+                className="mb-6 brightness-0 invert w-auto h-auto" 
               />
               <p className="text-gray-400 mb-8 leading-relaxed">
                 Empowering businesses with trusted auditing, accounting, and consultancy services across the UAE.

@@ -54,7 +54,7 @@ export default function FinancialStatementPreparationPage() {
                   </h1>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    Financial statement preparation is a process of creating right and error-free financial documents. The statement speaks about the financial position and performance of a company. <strong className="text-black">MAJED ALSHAMSI AUDITING</strong> is committed to making sure that the company's financial statements are not simply an important requirement but a special tool for making a strategic decision. We specialize in offering top-notch accounting and financial reporting solutions, assisting you to quickly navigate the complexities of fiscal statement preparation by following the Financial Reporting standards in Dubai.
+                    Financial statement preparation is a process of creating right and error-free financial documents. The statement speaks about the financial position and performance of a company. <strong className="text-black">MAJED ALSHAMSI AUDITING</strong> is committed to making sure that the company&apos;s financial statements are not simply an important requirement but a special tool for making a strategic decision. We specialize in offering top-notch accounting and financial reporting solutions, assisting you to quickly navigate the complexities of fiscal statement preparation by following the Financial Reporting standards in Dubai.
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">
@@ -62,7 +62,7 @@ export default function FinancialStatementPreparationPage() {
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    Contact Financial Statement Preparation Services in Dubai if you'd like to learn more about services.
+                    Contact Financial Statement Preparation Services in Dubai if you&apos;d like to learn more about services.
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">

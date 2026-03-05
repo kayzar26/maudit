@@ -22,6 +22,7 @@ export function BlogCard({ img, date, title, url, delay = 0 }: BlogCardProps) {
             src={img}
             alt={title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
           />
         </div>

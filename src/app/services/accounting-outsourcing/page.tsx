@@ -45,7 +45,7 @@ export default function AccountingOutsourcingPage() {
                   <div className="prose prose-lg max-w-none text-secondary">
                     <h2 className="text-3xl font-bold text-thm uppercase mb-6">About Accounting Outsourcing</h2>
                     <p className="mb-6 leading-relaxed">
-                      Our accounting outsourcing services are designed to provide your business with the strategic edge it needs to thrive in Dubai's competitive market. We combine deep industry knowledge with practical application to deliver results that matter.
+                      Our accounting outsourcing services are designed to provide your business with the strategic edge it needs to thrive in Dubai&apos;s competitive market. We combine deep industry knowledge with practical application to deliver results that matter.
                     </p>
                     <p className="mb-6 leading-relaxed">
                       Whether you are looking to streamline your operations, ensure compliance, or scale your revenue, our dedicated team of experts is here to guide you through every step of the process.

@@ -82,7 +82,7 @@ export default function WithholdingTaxPage() {
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    Our tax professionals stay <strong className="text-black">up to date</strong> with the latest regulations and offer clear insights into the applicability, rates, and impact of withholding tax on your operations. Whether you're handling cross-border payments or <strong className="text-black">service-based transactions</strong>, our consultants ensure you make informed decisions. To <strong className="text-black">stay compliant</strong> and avoid unnecessary penalties, rely on <strong className="text-black">Majed Alshamsi Auditing</strong> for all your withholding tax needs.
+                    Our tax professionals stay <strong className="text-black">up to date</strong> with the latest regulations and offer clear insights into the applicability, rates, and impact of withholding tax on your operations. Whether you&apos;re handling cross-border payments or <strong className="text-black">service-based transactions</strong>, our consultants ensure you make informed decisions. To <strong className="text-black">stay compliant</strong> and avoid unnecessary penalties, rely on <strong className="text-black">Majed Alshamsi Auditing</strong> for all your withholding tax needs.
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">

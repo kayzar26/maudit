@@ -204,21 +204,12 @@ function ServiceItem({ item, index }: { item: typeof allServicesData[0]; index: 
           alt={item.title}
           width={224}
           height={224}
-          className="w-full rounded-lg shadow-2xl transition-transform duration-100 ease-out"
-          style={{ transform: "translate(-50%, -50%) translate(50%, 0) scale(0.65)" }}
+          className="h-auto rounded-lg shadow-2xl transition-transform duration-100 ease-out"
+          style={{ width: "auto", transform: "translate(-50%, -50%) translate(50%, 0) scale(0.65)" }}
         />
       </div>
 
-      {/* Mobile Image */}
-      <div className="md:hidden mt-6 mb-4">
-        <Image
-          src={item.image}
-          alt={item.title}
-          width={150}
-          height={150}
-          className="rounded-lg shadow-xl"
-        />
-      </div>
+      {/* Mobile Image (Hidden natively) */}
 
       <div className="mt-4 md:mt-0 md:ml-auto md:absolute md:right-8 md:top-1/2 md:-translate-y-1/2 z-10 text-secondary group-hover:text-primary group-hover:-rotate-45 transition-all duration-300">
         <ArrowRight size={32} />

@@ -58,7 +58,7 @@ export default function VatRegistrationPage() {
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    We are a professional company that gives accounting services to businesses all over the world. A small mistake in the way might result in starting all over again. Therefore, you can contact us to find the best VAT registration service in Dubai, as it boasts a team of experts who make sure that the company's documents are transparent, up-to-date, and certified.
+                    We are a professional company that gives accounting services to businesses all over the world. A small mistake in the way might result in starting all over again. Therefore, you can contact us to find the best VAT registration service in Dubai, as it boasts a team of experts who make sure that the company&apos;s documents are transparent, up-to-date, and certified.
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">

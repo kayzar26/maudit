@@ -54,7 +54,7 @@ export default function TransferPricingPage() {
                   </h1>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    <strong className="text-black">Transfer pricing</strong> refers to the pricing of goods, services, and intangibles between associated enterprises such as subsidiaries and affiliates. With the increasing complexity of global operations, it has become a key area of risk and scrutiny for multinational businesses. If you're looking for reliable and effective solutions, <strong className="text-black">Majed Alshamsi Auditing</strong> offers expert <strong className="text-black">Transfer Pricing Services in Dubai</strong> tailored to your needs.
+                    <strong className="text-black">Transfer pricing</strong> refers to the pricing of goods, services, and intangibles between associated enterprises such as subsidiaries and affiliates. With the increasing complexity of global operations, it has become a key area of risk and scrutiny for multinational businesses. If you&apos;re looking for reliable and effective solutions, <strong className="text-black">Majed Alshamsi Auditing</strong> offers expert <strong className="text-black">Transfer Pricing Services in Dubai</strong> tailored to your needs.
                   </p>
 
                   <p className="text-lg leading-relaxed mb-8">

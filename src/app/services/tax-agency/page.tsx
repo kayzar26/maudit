@@ -6,7 +6,7 @@ import { SubCategoryList } from "@/components/front/service/SubCategoryList";
 import { ButtonBase } from "@/components/ui/ButtonBase";
 import { Check } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -46,7 +46,7 @@ export default function TaxAgencyPage() {
                   </h1>
 
                   <p className="text-lg leading-relaxed mb-8">
-                    Our tax agency services provide comprehensive support for all tax-related matters in the UAE. From VAT registration and return filing to corporate tax compliance, we act as your trusted partner in navigating the UAE's evolving tax landscape. Our experienced team ensures full compliance with Federal Tax Authority (FTA) regulations while optimizing your tax position.
+                    Our tax agency services provide comprehensive support for all tax-related matters in the UAE. From VAT registration and return filing to corporate tax compliance, we act as your trusted partner in navigating the UAE&apos;s evolving tax landscape. Our experienced team ensures full compliance with Federal Tax Authority (FTA) regulations while optimizing your tax position.
                   </p>
                 </FadeIn>
 

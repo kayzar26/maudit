@@ -11,8 +11,11 @@ import { CounterUp } from "@/components/front/counter-up/CounterUp";
 import Image from "next/image";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
+import { getAllPostsMeta } from "@/lib/mdx";
 
-export default function Home() {
+export default async function Home() {
+  const latestPosts = (await getAllPostsMeta()).slice(0, 3);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Navbar />
@@ -63,8 +66,8 @@ export default function Home() {
             {/* Hero Bottom Image area */}
             <div className="relative mt-8">
                <FadeIn delay={0.8} yOffset={40}>
-                 <Image src="/img/hero/hero-img.png" alt="Hero Office" width={1200} height={500} className="w-full h-[300px] md:h-auto object-cover rounded-2xl md:rounded-none" />
-                 <Image src="/img/overlay/edge-cut.webp" alt="Cut overlay" width={200} height={200} className="absolute -top-8 -left-5 hidden md:block" />
+                 <Image src="/img/hero/hero-img.png" alt="Hero Office" width={1200} height={500} priority className="w-full h-[300px] md:h-auto object-cover rounded-2xl md:rounded-none" />
+                 <Image src="/img/overlay/edge-cut.webp" alt="Cut overlay" width={200} height={200} className="absolute -top-8 -left-5 hidden md:block" style={{ width: 'auto', height: 'auto' }} />
                </FadeIn>
                
                <Link href="/contact-us" className="absolute -top-12 md:top-0 right-4 md:right-0 z-20 flex flex-col items-center group">
@@ -95,7 +98,7 @@ export default function Home() {
                   <Image src="/img/about/about-img.png" alt="Office Workers" width={600} height={700} className="w-full relative z-10" />
                 </FadeIn>
                 <div className="absolute top-6 left-6 w-full h-full z-0 hidden md:block animate-[pulse_4s_ease-in-out_infinite]">
-                  <Image src="/img/about/about-img-outline.png" alt="Outline" fill className="object-contain" />
+                  <Image src="/img/about/about-img-outline.png" alt="Outline" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
                 </div>
               </div>
 
@@ -199,27 +202,16 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <BlogCard 
-                delay={0}
-                img="/img/blog/demo1.png"
-                date="8 December 2024"
-                title="Understanding Corporate Tax Registration Requirements in the UAE"
-                url="/blog"
-              />
-              <BlogCard 
-                delay={0.15}
-                img="/img/blog/demo2.png"
-                date="8 December 2024"
-                title="How VAT Changes Might Affect Small Businesses in Dubai"
-                url="/blog"
-              />
-              <BlogCard 
-                delay={0.3}
-                img="/img/blog/demo3.png"
-                date="8 December 2024"
-                title="5 Steps to Prepare Your Corporation for the Tax Audit Season"
-                url="/blog"
-              />
+              {latestPosts.map((post, index) => (
+                <BlogCard 
+                  key={post.slug}
+                  delay={index * 0.15}
+                  img={post.featuredImage || "/img/blog/demo1.png"}
+                  date={new Date(post.date).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" })}
+                  title={post.title}
+                  url={`/blog/${post.slug}`}
+                />
+              ))}
             </div>
           </div>
         </section>

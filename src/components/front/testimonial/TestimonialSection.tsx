@@ -60,6 +60,7 @@ export function TestimonialSection() {
                   src="/img/about/testimonial.png"
                   alt="Client Testimonial Showcase"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
               </div>
@@ -96,12 +97,9 @@ export function TestimonialSection() {
                 }}
               >
                 {TESTIMONIALS.map((testimonial) => (
-                  <SwiperSlide key={testimonial.id}>
-                    <div className="bg-thm/5 border border-thm/10 border-b-[6px] border-b-thm/20 rounded-2xl p-8 md:p-12 max-w-[650px] mx-auto md:mx-0 relative">
+                  <SwiperSlide key={testimonial.id} className="!h-auto">
+                    <div className="bg-thm/5 border border-thm/10 border-b-[6px] border-b-thm/20 rounded-2xl p-8 md:p-12 max-w-[650px] mx-auto md:mx-0 relative h-full flex flex-col">
                       {/* Quote mark backgrounds */}
-                      <div className="absolute inset-0 z-0 opacity-5 pointer-events-none" 
-                           style={{ backgroundImage: `url('/img/testimonial/quote-start.svg'), url('/img/testimonial/quote-end.svg')`, backgroundPosition: '0 0, 100% 85%', backgroundRepeat: 'no-repeat', backgroundSize: '28%' }} 
-                      />
                       
                       <div className="relative z-10 flex flex-col md:items-start text-left">
                         {/* Rating */}
@@ -125,6 +123,7 @@ export function TestimonialSection() {
                               src="/img/about/testi-author-1.png"
                               alt={testimonial.authorName}
                               fill
+                              sizes="60px"
                               className="object-cover"
                             />
                           </div>
