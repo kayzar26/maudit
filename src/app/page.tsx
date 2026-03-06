@@ -33,7 +33,7 @@ export default async function Home() {
               <div className="lg:w-2/3 text-center lg:text-left mb-12 lg:mb-0">
                 <FadeIn delay={0.2} yOffset={20}>
                   <div className="relative inline-block text-lg md:text-2xl uppercase font-bold tracking-widest pl-10 mb-6">
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-[url('/img/logo/wordmark.webp')] bg-contain bg-no-repeat" />
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-[url('/img/logo/wordmark-primary.webp')] bg-contain bg-no-repeat" />
                     Trusted by Businesses Across Dubai
                   </div>
                 </FadeIn>
@@ -95,7 +95,7 @@ export default async function Home() {
               {/* Left Images */}
               <div className="relative">
                 <FadeIn yOffset={40}>
-                  <Image src="/img/about/about-img.png" alt="Office Workers" width={600} height={700} className="w-full relative z-10" />
+                  <Image src="/img/about/about-img2.png" alt="Office Workers" width={600} height={700} className="w-full relative z-10" />
                 </FadeIn>
                 <div className="absolute top-6 left-6 w-full h-full z-0 hidden md:block animate-[pulse_4s_ease-in-out_infinite]">
                   <Image src="/img/about/about-img-outline.png" alt="Outline" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />

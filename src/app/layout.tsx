@@ -35,6 +35,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { StickyWhatsAppButton } from "@/components/ui/StickyWhatsAppButton";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -76,6 +78,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {children}
+        <StickyWhatsAppButton />
       </body>
     </html>
   );

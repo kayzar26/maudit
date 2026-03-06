@@ -23,7 +23,7 @@ const MENU_ITEMS = [
       { label: "View All »", href: "/services" },
     ],
   },
-  { label: "News & Events", href: "/blog" },
+  { label: "Blogs", href: "/blog" },
 ];
 
 export function Navbar() {
@@ -44,9 +44,7 @@ export function Navbar() {
     <header 
       className={cn(
         "sticky top-0 z-50 w-full transition-all duration-300",
-        isScrolled
-          ? "bg-white shadow-md border-b border-transparent"
-          : "bg-white/90 backdrop-blur-md border-b border-gray-100"
+        "bg-[#0a0f16]/90 backdrop-blur-md shadow-md border-b border-white/10"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +75,7 @@ export function Navbar() {
                     "flex items-center gap-1 text-[17px] font-semibold tracking-wide transition-colors",
                     pathname === item.href
                       ? "text-primary"
-                      : "text-secondary hover:text-primary"
+                      : "text-white/90 hover:text-primary"
                   )}
                 >
                   {item.label}
@@ -115,7 +113,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             title="Mobile Menu"
-            className="md:hidden p-2 text-gray-600 hover:text-primary"
+            className="md:hidden p-2 text-white hover:text-primary"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -125,15 +123,15 @@ export function Navbar() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 px-4 py-6 shadow-xl">
+        <div className="md:hidden bg-[#0a0f16]/95 backdrop-blur-md border-t border-white/10 px-4 py-6 shadow-xl">
           <div className="flex flex-col gap-4">
             {MENU_ITEMS.map((item) => (
               <div key={item.label} className="flex flex-col">
                 <Link
                   href={item.href}
                   className={cn(
-                    "text-lg font-semibold border-b border-gray-50 pb-2",
-                    pathname === item.href ? "text-primary" : "text-secondary"
+                    "text-lg font-semibold border-b border-white/10 pb-2",
+                    pathname === item.href ? "text-primary" : "text-white"
                   )}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -145,7 +143,7 @@ export function Navbar() {
                       <Link
                         key={subItem.label}
                         href={subItem.href}
-                        className="text-gray-600 py-1"
+                        className="text-gray-300 py-1 hover:text-white"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {subItem.label}

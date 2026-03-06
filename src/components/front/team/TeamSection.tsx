@@ -9,25 +9,25 @@ const TEAM_MEMBERS = [
     id: 1,
     name: "Majed Ali Ahmed Omran Alshamsi",
     designation: "Founder / CEO",
-    imgUrl: "/img/team/majed-ali.png",
+    imgUrl: "/img/team/1.png",
   },
   {
     id: 2,
     name: "Ali Majed ALi Ahmed Alshamsi",
     designation: "Director / COO",
-    imgUrl: "/img/team/ali-majed.png",
+    imgUrl: "/img/team/2.png",
   },
   {
     id: 3,
     name: "Jayesh Donda",
     designation: "Audit Manager",
-    imgUrl: "/img/team/jayesh-donda-v2.png",
+    imgUrl: "/img/team/3.png",
   },
   {
     id: 4,
     name: "Raheesh Elavanthra",
     designation: "Senior Manager",
-    imgUrl: "/img/team/raheesh-elavanthra.png",
+    imgUrl: "/img/team/4.png",
   },
 ];
 
