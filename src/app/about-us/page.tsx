@@ -181,7 +181,9 @@ export default function AboutUsPage() {
               </FadeIn>
             </div>
             
-            <ServicesList include={['virtual-cfo', 'internal-audit', 'forensic-audit', 'corporate-tax']} />
+            <FadeIn yOffset={40}>
+              <ServicesList include={['virtual-cfo', 'internal-audit', 'corporate-tax']} />
+            </FadeIn>
           </div>
         </section>
 

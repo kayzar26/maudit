@@ -66,7 +66,7 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
 
         <section className="py-24 bg-white text-secondary">
           <div className="container mx-auto px-4 max-w-7xl">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-12">
               
               {/* Sidebar */}
               <div className="lg:col-span-1 border-r border-gray-100 pr-0 lg:pr-8">
@@ -97,13 +97,6 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
                      dangerouslySetInnerHTML={{ __html: service.content }} 
                   />
 
-                  <div className="mt-12 pt-8 border-t border-gray-100">
-                    <FadeIn delay={0.3} yOffset={20}>
-                      <Link href="/contact-us">
-                        <ButtonBase>Connect With Our Experts</ButtonBase>
-                      </Link>
-                    </FadeIn>
-                  </div>
                 </FadeIn>
               </div>
             </div>

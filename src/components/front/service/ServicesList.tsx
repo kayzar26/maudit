@@ -84,20 +84,7 @@ export const allServicesData = [
     description: "Empowering businesses through technology adoption, automation, and innovative digital solutions.",
     image: "/img/service/digital-transformation.png",
   },
-  {
-    title: "ESG Advisory Services",
-    slug: "esg-advisory-services",
-    link: "/services/esg-advisory-services",
-    description: "Support your sustainability goals with ESG strategies that align with global standards and compliance.",
-    image: "/img/service/esg-advisory.png",
-  },
-  {
-    title: "Forensic Audit",
-    slug: "forensic-audit",
-    link: "/services/forensic-audit",
-    description: "Detect financial fraud, irregularities, and misconduct with comprehensive forensic auditing services.",
-    image: "/img/service/forensic-audit.png",
-  },
+
   {
     title: "Risk Advisory",
     slug: "risk-advisory",
