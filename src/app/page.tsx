@@ -31,19 +31,19 @@ export default async function Home() {
             <div className="flex flex-col lg:flex-row items-center justify-between pb-20">
               {/* Hero Text */}
               <div className="lg:w-2/3 text-center lg:text-left mb-12 lg:mb-0">
-                <FadeIn delay={0.2} yOffset={20}>
+                <FadeIn delay={0.2} yOffset={20} animate={false}>
                   <div className="relative inline-block text-lg md:text-2xl uppercase font-bold tracking-widest pl-10 mb-6">
                     <span className="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-6 bg-[url('/img/logo/wordmark-primary.webp')] bg-contain bg-no-repeat" />
                     Trusted by Businesses Across Dubai
                   </div>
                 </FadeIn>
-                <FadeIn delay={0.4} yOffset={30}>
+                <FadeIn delay={0.4} yOffset={30} animate={false}>
                   <h1 className="text-5xl md:text-7xl lg:text-[72px] uppercase font-extrabold leading-tight tracking-tight">
                     Auditing 
-                    <Image src="/img/overlay/four-leave.webp" alt="Shape" width={65} height={65} className="inline-block mx-3 -mt-4 animate-[spin_20s_linear_infinite]" />
+                    <Image src="/img/overlay/four-leave.webp" alt="Shape" width={65} height={65} priority className="inline-block mx-3 -mt-4 animate-[spin_20s_linear_infinite]" />
                     Services <br />
                     <span className="hidden md:inline-block bg-white/10 border-2 border-primary rounded-full px-4 py-2 mr-3 -mt-2">
-                       <Image src="/img/overlay/clients.webp" alt="Clients" width={110} height={40} className="object-contain" />
+                       <Image src="/img/overlay/clients.webp" alt="Clients" width={110} height={40} priority className="object-contain" />
                     </span>
                     to Drive Growth
                   </h1>
@@ -52,12 +52,12 @@ export default async function Home() {
 
               {/* Hero Right / CTA Sphere */}
               <div className="lg:w-1/3 flex justify-center lg:justify-end relative">
-                <FadeIn delay={0.6} yOffset={40}>
-                  <Image src="/img/overlay/hero-circle-shape.webp" alt="Sphere" width={450} height={450} className="w-[340px] md:w-[450px] animate-[spin_40s_linear_infinite]" />
+                <FadeIn delay={0.6} yOffset={40} animate={false}>
+                  <Image src="/img/overlay/hero-circle-shape.webp" alt="Sphere" width={450} height={450} priority className="w-[340px] md:w-[450px] animate-[spin_40s_linear_infinite]" />
                   
                   <Link href="/contact-us" className="absolute top-0 right-0 md:right-auto md:left-1/2 bg-white/10 backdrop-blur-xl border-4 border-thm rounded-full w-[160px] h-[160px] md:w-[168px] md:h-[168px] flex items-center justify-center group hover:scale-105 transition-transform duration-300">
-                    <Image src="/img/overlay/hero-cta-text.webp" alt="Get Started" width={100} height={100} className="absolute animate-[spin_20s_reverse_linear_infinite]" />
-                    <Image src="/img/overlay/hero-cta-arrow.svg" alt="Arrow" width={30} height={30} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <Image src="/img/overlay/hero-cta-text.webp" alt="Get Started" width={100} height={100} priority className="absolute animate-[spin_20s_reverse_linear_infinite]" />
+                    <Image src="/img/overlay/hero-cta-arrow.svg" alt="Arrow" width={30} height={30} priority className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Link>
                 </FadeIn>
               </div>
@@ -65,9 +65,9 @@ export default async function Home() {
 
             {/* Hero Bottom Image area */}
             <div className="relative mt-8">
-               <FadeIn delay={0.8} yOffset={40}>
+               <FadeIn delay={0.8} yOffset={40} animate={false}>
                  <Image src="/img/hero/hero-img.png" alt="Hero Office" width={1200} height={500} priority className="w-full h-[300px] md:h-auto object-cover rounded-2xl md:rounded-none" />
-                 <Image src="/img/overlay/edge-cut.webp" alt="Cut overlay" width={200} height={200} className="absolute -top-8 -left-5 hidden md:block" style={{ width: 'auto', height: 'auto' }} />
+                 <Image src="/img/overlay/edge-cut.webp" alt="Cut overlay" width={200} height={200} priority className="absolute -top-8 -left-5 hidden md:block" style={{ width: 'auto', height: 'auto' }} />
                </FadeIn>
                
                <Link href="/contact-us" className="absolute -top-12 md:top-0 right-4 md:right-0 z-20 flex flex-col items-center group">
@@ -79,7 +79,7 @@ export default async function Home() {
                        <MoveRight size={24} />
                     </div>
                  </div>
-                 <span className="font-bold text-xl uppercase tracking-wider group-hover:text-primary transition-colors">Get Started</span>
+                 <span className="font-bold text-xl uppercase tracking-wider group-hover:text-primary text-black transition-colors">Get Started</span>
                </Link>
             </div>
           </div>

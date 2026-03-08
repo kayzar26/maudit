@@ -15,11 +15,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://maudit.ae"),
   title: {
-    default: "Majed Alshamsi Auditing | Top Audit Firm in Dubai",
+    default: "Majed Alshamsi Auditing | Best Auditing Firm in Dubai",
     template: "%s | Majed Alshamsi Auditing",
   },
   description:
-    "Majed Alshamsi Auditing is a leading audit and accounting firm in Dubai, UAE providing top-tier financial services, bookkeeping, VAT consulting, and corporate tax advisory.",
+    "Majed Alshamsi Auditing is a leading audit and accounting firm in Dubai, UAE providing top tier financial services, bookkeeping, VAT consulting, audit and more.",
   openGraph: {
     title: "Majed Alshamsi Auditing",
     description: "Leading audit and accounting firm in Dubai, UAE.",
@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Majed Alshamsi Auditing",
     description: "Leading audit and accounting firm in Dubai, UAE.",
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 

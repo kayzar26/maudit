@@ -9,6 +9,7 @@ interface FadeInProps {
   duration?: number;
   className?: string;
   yOffset?: number;
+  animate?: boolean;
 }
 
 export function FadeIn({
@@ -17,7 +18,12 @@ export function FadeIn({
   duration = 0.5,
   className = "",
   yOffset = 50,
+  animate = true,
 }: FadeInProps) {
+  if (!animate) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: yOffset }}

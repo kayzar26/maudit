@@ -55,7 +55,7 @@ function FAQAccordion({ question, answer }: { question: string; answer: string }
 
 export default function FAQPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-white">
       <Navbar />
 
       <main className="flex-grow">
@@ -67,7 +67,7 @@ export default function FAQPage() {
           ]}
         />
 
-        <section className="py-24 md:py-40">
+        <section className="py-24 md:py-40 bg-zinc-50">
           <div className="container mx-auto px-4 max-w-4xl">
             <FadeIn yOffset={30}>
               <div className="text-center mb-16">

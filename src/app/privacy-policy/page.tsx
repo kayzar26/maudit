@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-white text-secondary">
       <Navbar />
 
       <main className="flex-grow">

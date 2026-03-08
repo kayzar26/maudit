@@ -19,7 +19,7 @@ const MENU_ITEMS = [
       { label: "Accounting & VAT", href: "/services/accounting-vat" },
       { label: "Tax Agency Services", href: "/services/tax-agency" },
       { label: "Management Consulting", href: "/services/management-consulting" },
-      { label: "BPO Services", href: "/services/bpo-services" },
+      { label: "BPO Services", href: "/services/business-process-outsourcing" },
       { label: "View All »", href: "/services" },
     ],
   },
