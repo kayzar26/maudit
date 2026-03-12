@@ -57,8 +57,25 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
   
   breadcrumbPages.push({ url: `/services/${slugPath}`, name: service.headline });
 
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.headline,
+    "description": service.seoDescription,
+    "provider": {
+      "@type": "AccountingService",
+      "name": "Majed Alshamsi Auditing",
+      "url": "https://maudit.ae"
+    },
+    "url": `https://maudit.ae/services/${slugPath}`,
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <Navbar />
 
       <main className="flex-grow">
@@ -70,7 +87,33 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
               
               {/* Sidebar */}
               <div className="lg:col-span-1 border-r border-gray-100 pr-0 lg:pr-8">
-                <ServiceSidebar />
+                {(() => {
+                  const parentSlug = resolvedParams.slug[0];
+                  
+                  // Find all services under this parent
+                  const parentServices = services.filter(s => 
+                    s.slug === parentSlug || s.slug.startsWith(`${parentSlug}/`)
+                  );
+                  
+                  // Find the main parent service to get its headline
+                  const mainParentService = services.find(s => s.slug === parentSlug);
+                  
+                  // If there are sub-services (more than just the parent itself)
+                  if (parentServices.length > 1 && mainParentService) {
+                    const otherService = {
+                      heading: mainParentService.headline,
+                       pages: parentServices.map(subService => ({
+                        label: subService.headline,
+                        url: `/services/${subService.slug}`
+                      }))
+                    };
+                    
+                    return <ServiceSidebar otherService={otherService} popularService={false} />;
+                  } else {
+                    // Fallback to popular services for standalone pages
+                    return <ServiceSidebar popularService={true} />;
+                  }
+                })()}
               </div>
 
               {/* Main Content */}

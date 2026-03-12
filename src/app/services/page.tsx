@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ServicesList } from "@/components/front/service/ServicesList";
 import { Metadata } from "next";
+import { services } from "@/data/services";
 
 export const metadata: Metadata = {
   title: "Services | Maudit | Audit & Assurance in Dubai",
@@ -10,8 +11,25 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
+  const topLevelServices = services.filter((s) => !s.slug.includes("/"));
+  
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": topLevelServices.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": service.headline,
+      "url": `https://maudit.ae/services/${service.slug}`
+    }))
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
       <Navbar />
       
       <main className="flex-grow">
