@@ -39,6 +39,7 @@ export const metadata: Metadata = {
 };
 
 import { StickyWhatsAppButton } from "@/components/ui/StickyWhatsAppButton";
+import { StickyCallButton } from "@/components/ui/StickyCallButton";
 
 export default function RootLayout({
   children,
@@ -82,6 +83,7 @@ export default function RootLayout({
       >
         {children}
         <StickyWhatsAppButton />
+        <StickyCallButton />
       </body>
     </html>
   );

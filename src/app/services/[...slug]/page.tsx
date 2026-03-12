@@ -6,6 +6,8 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ServiceSidebar } from "@/components/front/service/ServiceSidebar";
 import { ButtonBase } from "@/components/ui/ButtonBase";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { ServiceQuoteBanner } from "@/components/ui/ServiceQuoteBanner";
+import { ServicePageCTA } from "@/components/ui/ServicePageCTA";
 import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/data/services";
@@ -81,6 +83,8 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
       <main className="flex-grow">
         <Breadcrumb title={service.headline} pages={breadcrumbPages} />
 
+        <ServiceQuoteBanner />
+
         <section className="py-24 bg-white text-secondary">
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="flex flex-col-reverse lg:grid lg:grid-cols-3 gap-12">
@@ -139,6 +143,8 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
                      className="prose prose-lg max-w-none text-secondary prose-headings:text-2xl prose-headings:font-bold prose-headings:text-thm prose-headings:mb-5 prose-ul:flex prose-ul:flex-col prose-ul:gap-3 prose-ul:list-disc prose-ul:ml-8 prose-ul:mb-10 prose-p:text-lg prose-p:leading-relaxed prose-p:mb-8"
                      dangerouslySetInnerHTML={{ __html: service.content }} 
                   />
+
+                  <ServicePageCTA />
 
                 </FadeIn>
               </div>
