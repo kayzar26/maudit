@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description: "Read the latest news, insights, and updates about auditing, accounting, VAT, and corporate tax in the UAE.",
 };
 
+// Cache for 1 day — blog content rarely changes. Zero function cost between rebuilds.
+export const revalidate = 86400;
+
 export default async function BlogIndexPage() {
   const posts = await getAllPostsMeta();
 

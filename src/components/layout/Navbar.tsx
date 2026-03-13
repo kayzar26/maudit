@@ -49,7 +49,7 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <Link href="/" className="flex flex-shrink-0 items-center">
+          <Link href="/" prefetch={false} className="flex flex-shrink-0 items-center">
             <Image
               src="/img/logo/al-shamsi-logo.png"
               alt="Majed Al Shamsi Auditing"
@@ -71,6 +71,7 @@ export function Navbar() {
               >
                 <Link
                   href={item.href}
+                  prefetch={false}
                   className={cn(
                     "flex items-center gap-1 text-[17px] font-semibold tracking-wide transition-colors",
                     pathname === item.href
@@ -90,6 +91,7 @@ export function Navbar() {
                         <Link
                           key={subItem.label}
                           href={subItem.href}
+                          prefetch={false}
                           className={cn(
                             "block rounded-md px-4 py-2 hover:bg-gray-50",
                             pathname === subItem.href
@@ -105,7 +107,7 @@ export function Navbar() {
                 )}
               </div>
             ))}
-            <Link href="/contact-us">
+            <Link href="/contact-us" prefetch={false}>
               <ButtonBase>Contact Us</ButtonBase>
             </Link>
           </nav>
@@ -129,6 +131,7 @@ export function Navbar() {
               <div key={item.label} className="flex flex-col">
                 <Link
                   href={item.href}
+                  prefetch={false}
                   className={cn(
                     "text-lg font-semibold border-b border-white/10 pb-2",
                     pathname === item.href ? "text-primary" : "text-white"
@@ -143,6 +146,7 @@ export function Navbar() {
                       <Link
                         key={subItem.label}
                         href={subItem.href}
+                        prefetch={false}
                         className="text-gray-300 py-1 hover:text-white"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
@@ -153,7 +157,7 @@ export function Navbar() {
                 )}
               </div>
             ))}
-            <Link href="/contact-us" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/contact-us" prefetch={false} onClick={() => setIsMobileMenuOpen(false)}>
               <ButtonBase className="w-full text-center mt-4">Contact Us</ButtonBase>
             </Link>
           </div>
