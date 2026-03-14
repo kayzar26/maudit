@@ -92,7 +92,7 @@ const nextConfig: NextConfig = {
       },
       // Block common vulnerability scanner paths
       {
-        source: "/.env{/:path*}",
+        source: "/.env(.*)",
         destination: "/",
         permanent: false,
       },
