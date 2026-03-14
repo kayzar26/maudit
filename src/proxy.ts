@@ -51,7 +51,7 @@ const BLOCKED_PATH_PREFIXES = [
 // File extension patterns that are never valid on a Next.js site
 const BLOCKED_EXTENSIONS = /\.(php|asp|aspx|jsp|cgi|pl|py|rb|sh|bash|env|config|bak|sql|db|sqlite|log|xml)$/i;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const userAgent = request.headers.get("user-agent") || "";
 

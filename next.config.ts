@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
       },
       // Cache images for 30 days
       {
-        source: "/:path*.{jpg,jpeg,png,gif,webp,avif,svg,ico}",
+        source: "/:path*.:ext(jpg|jpeg|png|gif|webp|avif|svg|ico)",
         headers: [
           {
             key: "Cache-Control",
@@ -92,7 +92,7 @@ const nextConfig: NextConfig = {
       },
       // Block common vulnerability scanner paths
       {
-        source: "/.env:path*",
+        source: "/.env{/:path*}",
         destination: "/",
         permanent: false,
       },
