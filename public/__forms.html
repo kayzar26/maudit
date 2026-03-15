@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Netlify Forms Configuration</title>
+</head>
+<body>
+    <!-- 
+      This file is required by @netlify/plugin-nextjs@5+ for Netlify Forms to work.
+      Netlify parses this static HTML at build time to register the backend form handlers.
+      Our Next.js React components will then be able to submit to them.
+    -->
+
+    <!-- 1. Contact Form Main (from src/components/front/form/ContactForm.tsx) -->
+    <form name="Contact Form Main" netlify hidden>
+        <input type="text" name="firstName" />
+        <input type="text" name="lastName" />
+        <input type="email" name="email" />
+        <input type="text" name="phone" />
+        <select name="serviceType"></select>
+        <textarea name="message"></textarea>
+    </form>
+
+    <!-- 2. Contact Us Page Form (from src/app/contact-us/page.tsx) -->
+    <form name="Contact Us Page Form" netlify hidden>
+        <input type="text" name="firstName" />
+        <input type="text" name="lastName" />
+        <input type="email" name="email" />
+        <input type="text" name="phone" />
+        <select name="serviceType"></select>
+        <textarea name="message"></textarea>
+    </form>
+
+    <!-- 3. Newsletter Subscription (from src/components/layout/Footer.tsx) -->
+    <form name="Newsletter Subscription" netlify hidden>
+        <input type="email" name="email" />
+    </form>
+
+    <!-- 4. Quote Request Form (from src/components/ui/QuoteFormModal.tsx) -->
+    <form name="Quote Request Form" netlify hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="phone" />
+        <select name="serviceType"></select>
+        <textarea name="message"></textarea>
+    </form>
+
+</body>
+</html>
