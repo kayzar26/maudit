@@ -85,7 +85,8 @@ export function Footer() {
             {/* Newsletter */}
             <div>
               <h3 className="text-xl font-bold mb-6">Join Newsletter</h3>
-              <form className="flex flex-col gap-4">
+              <form className="flex flex-col gap-4" data-netlify='true' name="Newsletter Subscription">
+                <input type="hidden" name="form-name" value="Newsletter Subscription" />
                 <input
                   type="email"
                   placeholder="Email Address"

@@ -51,7 +51,8 @@ export function ContactForm({ buttonLabel = "Submit Now", role = "sidebar" }: Co
   const gapClass = role === "contact" ? "gap-6" : "gap-4";
 
   return (
-    <form onSubmit={handleSubmit} className="appointment-form bg-[#18191e] p-6 lg:p-8 rounded-[20px] shadow-2xl z-10 w-full relative">
+    <form onSubmit={handleSubmit} className="appointment-form bg-[#18191e] p-6 lg:p-8 rounded-[20px] shadow-2xl z-10 w-full relative" data-netlify='true' name="Contact Form Main">
+       <input type="hidden" name="form-name" value="Contact Form Main" />
        <h3 className="text-xl md:text-2xl uppercase font-bold mb-6 text-white tracking-wide">
             Schedule Appointment
         </h3>

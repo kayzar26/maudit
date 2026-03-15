@@ -92,7 +92,8 @@ export default function ContactUsPage() {
               <div className="lg:col-span-7 relative">
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 relative z-10">
                   <h3 className="text-2xl font-bold uppercase mb-8">Get In touch now</h3>
-                  <form className="space-y-6">
+                  <form className="space-y-6" data-netlify='true' name="Contact Us Page Form">
+                    <input type="hidden" name="form-name" value="Contact Us Page Form" />
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <input 
                         type="text" 

@@ -102,7 +102,8 @@ export function QuoteFormModal({ isOpen, onClose }: QuoteFormModalProps) {
                 Fill in the details below and our team will get back to you within 24 hours.
               </p>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4" data-netlify='true' name="Quote Request Form">
+                <input type="hidden" name="form-name" value="Quote Request Form" />
                 <input
                   className={inputClass}
                   name="name"
