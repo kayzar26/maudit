@@ -39,20 +39,29 @@ export function QuoteFormModal({ isOpen, onClose }: QuoteFormModalProps) {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
 
-    // Simulate API call (will be replaced with Nodemailer API route later)
-    setTimeout(() => {
-      console.log("Quote Form Submitted:", formData);
+    const form = e.currentTarget;
+    const formDataObj = new FormData(form);
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formDataObj as any).toString(),
+      });
       setStatus("success");
       setFormData({ name: "", email: "", mobile: "", serviceType: "", comments: "" });
       setTimeout(() => {
         setStatus("idle");
         onClose();
-      }, 2000);
-    }, 1500);
+      }, 2500);
+    } catch (error) {
+      console.error("Netlify submission error:", error);
+      setStatus("error");
+    }
   };
 
   const inputClass =

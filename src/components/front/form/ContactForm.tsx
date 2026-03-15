@@ -27,13 +27,19 @@ export function ContactForm({ buttonLabel = "Submit Now", role = "sidebar" }: Co
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
     
-    // Simulate API call since the original backend (Laravel) is disconnected
-    setTimeout(() => {
-      console.log("Form Data Submitted:", formData);
+    const form = e.currentTarget;
+    const formDataObj = new FormData(form);
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formDataObj as any).toString(),
+      });
       setStatus("success");
       // Reset form on success
       setFormData({
@@ -44,8 +50,11 @@ export function ContactForm({ buttonLabel = "Submit Now", role = "sidebar" }: Co
         serviceType: "",
         message: "",
       });
-      setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      console.error("Netlify submission error:", error);
+      setStatus("error");
+    }
   };
 
   const gapClass = role === "contact" ? "gap-6" : "gap-4";

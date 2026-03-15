@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Twitter, Instagram, Linkedin, Phone, MapPin, Mail } from "lucide-react";
 import { ButtonBase } from "@/components/ui/ButtonBase";
+import { NewsletterForm } from "./NewsletterForm";
 
 export function Footer() {
   return (
@@ -85,15 +86,7 @@ export function Footer() {
             {/* Newsletter */}
             <div>
               <h3 className="text-xl font-bold mb-6">Join Newsletter</h3>
-              <form className="flex flex-col gap-4" data-netlify='true' name="Newsletter Subscription">
-                <input type="hidden" name="form-name" value="Newsletter Subscription" />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-primary"
-                />
-                <ButtonBase type="submit" className="w-full text-center">Subscribe</ButtonBase>
-              </form>
+              <NewsletterForm />
             </div>
           </div>
         </div>

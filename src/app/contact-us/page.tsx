@@ -2,9 +2,9 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Mail, PhoneCall, Clock } from "lucide-react";
-import { ButtonBase } from "@/components/ui/ButtonBase";
 import Image from "next/image";
 import { Metadata } from "next";
+import { ContactFormClient } from "./ContactFormClient";
 
 export const metadata: Metadata = {
   title: "Contact Us | Maudit | Audit & Assurance in Dubai",
@@ -92,63 +92,7 @@ export default function ContactUsPage() {
               <div className="lg:col-span-7 relative">
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 relative z-10">
                   <h3 className="text-2xl font-bold uppercase mb-8">Get In touch now</h3>
-                  <form className="space-y-6" data-netlify='true' name="Contact Us Page Form">
-                    <input type="hidden" name="form-name" value="Contact Us Page Form" />
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <input 
-                        type="text" 
-                        placeholder="First Name" 
-                        className="w-full bg-white/10 border border-transparent focus:border-white/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 outline-none transition-all"
-                        required 
-                      />
-                      <input 
-                        type="text" 
-                        placeholder="Last Name" 
-                        className="w-full bg-white/10 border border-transparent focus:border-white/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 outline-none transition-all"
-                        required 
-                      />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <input 
-                        type="tel" 
-                        placeholder="Phone Number" 
-                        className="w-full bg-white/10 border border-transparent focus:border-white/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 outline-none transition-all"
-                        required 
-                      />
-                      <input 
-                        type="email" 
-                        placeholder="Email Address" 
-                        className="w-full bg-white/10 border border-transparent focus:border-white/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 outline-none transition-all"
-                        required 
-                      />
-                    </div>
-                    
-                    <select 
-                      className="w-full bg-white/10 border border-transparent focus:border-white/30 rounded-lg px-4 py-3 text-white outline-none transition-all appearance-none"
-                      required
-                      defaultValue=""
-                    >
-                      <option value="" disabled className="text-black">Service Type</option>
-                      <option value="audit" className="text-black">Audit & Assurance</option>
-                      <option value="tax" className="text-black">Tax & Accounting Services</option>
-                      <option value="consulting" className="text-black">Consulting & Advisory</option>
-                      <option value="bpo" className="text-black">Business Support & Outsourcing</option>
-                      <option value="other" className="text-black">Not Sure / Other</option>
-                    </select>
-
-                    <textarea 
-                      placeholder="Your Message" 
-                      rows={4}
-                      className="w-full bg-white/10 border border-transparent focus:border-white/30 rounded-lg px-4 py-3 text-white placeholder-gray-400 outline-none transition-all resize-none"
-                      required
-                    />
-
-                    <div className="flex justify-end">
-                      <ButtonBase type="submit">
-                        Send Your Request
-                      </ButtonBase>
-                    </div>
-                  </form>
+                  <ContactFormClient />
                 </div>
               </div>
             </div>
