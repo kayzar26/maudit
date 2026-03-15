@@ -21,8 +21,8 @@ const BLOCKED_USER_AGENTS = [
   /^curl\/[\d.]+$/i,   // Bare curl only (e.g. "curl/7.68.0") — Google uses curl differently
   /^wget\/[\d.]+$/i,   // Bare wget only
   /scrapy/i,           // Python scraping framework
-  /semrush/i,          // SEO crawler (remove if you want SEMrush data)
-  /ahrefsbot/i,        // Ahrefs crawler
+  // /semrush/i,          // SEO crawler (remove if you want SEMrush data)
+  // /ahrefsbot/i,        // Ahrefs crawler
   /dotbot/i,           // Moz crawler
   /petalbot/i,         // Huawei bot
 ];

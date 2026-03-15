@@ -28,19 +28,9 @@ const nextConfig: NextConfig = {
           },
         ],
       },
-      // Cache public assets (images, fonts, etc.) for 1 year
+      // Cache local images (served from public/img) for 30 days
       {
-        source: "/public/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      // Cache images for 30 days
-      {
-        source: "/:path*.:ext(jpg|jpeg|png|gif|webp|avif|svg|ico)",
+        source: "/img/:path*",
         headers: [
           {
             key: "Cache-Control",
