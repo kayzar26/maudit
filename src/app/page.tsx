@@ -15,7 +15,7 @@ import { getAllPostsMeta } from "@/lib/mdx";
 
 // Cache this page for 1 day. After 1 day, one background rebuild happens
 // silently. All visitors in between get the cached version — zero function cost.
-export const revalidate = 86400;
+// export const revalidate = 86400;
 
 export default async function Home() {
   const latestPosts = (await getAllPostsMeta()).slice(0, 3);

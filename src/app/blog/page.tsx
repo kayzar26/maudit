@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 // Cache for 1 day — blog content rarely changes. Zero function cost between rebuilds.
-export const revalidate = 86400;
+// export const revalidate = 86400;
 
 export default async function BlogIndexPage() {
   const posts = await getAllPostsMeta();
