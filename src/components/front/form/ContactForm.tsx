@@ -35,7 +35,7 @@ export function ContactForm({ buttonLabel = "Submit Now", role = "sidebar" }: Co
     const formDataObj = new FormData(form);
 
     try {
-      await fetch("/", {
+      await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formDataObj as any).toString(),
