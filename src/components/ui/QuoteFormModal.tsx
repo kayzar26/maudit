@@ -52,6 +52,17 @@ export function QuoteFormModal({ isOpen, onClose }: QuoteFormModalProps) {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formDataObj as any).toString(),
       });
+
+      // Tracking: Quote form conversion for Google Ads/GTM
+      if (typeof window !== "undefined") {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+          event: "conversion_quote_request",
+          form_name: "Quote Request Form",
+          service_requested: formData.serviceType
+        });
+      }
+
       setStatus("success");
       setFormData({ name: "", email: "", mobile: "", serviceType: "", comments: "" });
       setTimeout(() => {

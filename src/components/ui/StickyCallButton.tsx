@@ -8,21 +8,25 @@ export function StickyCallButton() {
   const prevScrollY = useRef(0);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      // Only apply hide/show logic on mobile (< 1024px)
-      if (window.innerWidth < 1024) {
-        if (currentScrollY > prevScrollY.current && currentScrollY > 100) {
-          // Scrolling down
-          setVisible(false);
-        } else {
-          // Scrolling up
-          setVisible(true);
-        }
-      } else {
-        setVisible(true);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          if (window.innerWidth < 1024) {
+             if (currentScrollY > prevScrollY.current && currentScrollY > 150) {
+               setVisible(false);
+             } else {
+               setVisible(true);
+             }
+          } else {
+             setVisible(true);
+          }
+          prevScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-      prevScrollY.current = currentScrollY;
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -31,7 +35,13 @@ export function StickyCallButton() {
 
   return (
     <a
-      href="tel:+97142225774"
+      href="tel:+971545770076"
+      onClick={() => {
+        if (typeof window !== "undefined") {
+          (window as any).dataLayer = (window as any).dataLayer || [];
+          (window as any).dataLayer.push({ event: "click_call" });
+        }
+      }}
       className={`fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-2 bg-[#1a1d23] text-white px-2.5 py-4 rounded-l-xl shadow-lg border border-white/10 border-r-0 transition-all duration-300 hover:bg-[#2a2d33] hover:px-3.5 group ${
         visible
           ? "translate-x-0 opacity-100"

@@ -19,6 +19,16 @@ export function ContactFormClient() {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as any).toString(),
       });
+      
+      // Tracking: Contact form conversion for Google Ads/GTM
+      if (typeof window !== "undefined") {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+          event: "conversion_form_submit",
+          form_name: "Contact Us Page Form",
+        });
+      }
+
       setStatus("success");
       form.reset();
       setTimeout(() => setStatus("idle"), 5000);

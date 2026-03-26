@@ -21,22 +21,12 @@ const nextConfig: NextConfig = {
       // These NEVER hit a serverless function on repeat visits
       {
         source: "/_next/static/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       // Cache local images (served from public/img) for 30 days
       {
         source: "/img/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=2592000, stale-while-revalidate=86400",
-          },
-        ],
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" }],
       },
       // Apply security headers to ALL routes to deter bot scanners
       {
@@ -48,49 +38,20 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           // Controls referrer information
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          // Disallow indexing of admin/private URLs by search bots
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
-          },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
         ],
       },
     ];
   },
 
   // ─── Redirects ─────────────────────────────────────────────────────────────
-  // Block known bot/scanner paths that probe for vulnerabilities
-  // These paths are hit thousands of times per day by automated scanners
   async redirects() {
     return [
-      // Block WordPress scanner paths (very common automated attacks)
-      {
-        source: "/wp-admin/:path*",
-        destination: "/",
-        permanent: false,
-      },
-      {
-        source: "/wp-login.php",
-        destination: "/",
-        permanent: false,
-      },
-      // Block PHP file probing
-      {
-        source: "/:path*.php",
-        destination: "/",
-        permanent: false,
-      },
-      // Block common vulnerability scanner paths
-      {
-        source: "/.env(.*)",
-        destination: "/",
-        permanent: false,
-      },
-      {
-        source: "/xmlrpc.php",
-        destination: "/",
-        permanent: false,
-      },
+      { source: "/wp-admin/:path*", destination: "/403", permanent: false },
+      { source: "/wp-login.php", destination: "/403", permanent: false },
+      { source: "/:path*.php", destination: "/403", permanent: false },
+      { source: "/.env(.*)", destination: "/403", permanent: false },
+      { source: "/xmlrpc.php", destination: "/403", permanent: false },
     ];
   },
 };

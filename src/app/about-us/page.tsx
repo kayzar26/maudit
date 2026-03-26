@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FadeIn } from "@/components/animations/FadeIn";
 import { ButtonBase } from "@/components/ui/ButtonBase";
 import { CounterUp } from "@/components/front/counter-up/CounterUp";
 import { ServicesList } from "@/components/front/service/ServicesList";
@@ -11,7 +10,6 @@ import { TestimonialSection } from "@/components/front/testimonial/TestimonialSe
 
 import Image from "next/image";
 import Link from "next/link";
-// import { MoveRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About Us | Maudit | Majed Alshamsi Auditing",
@@ -40,34 +38,29 @@ export default function AboutUsPage() {
               
               {/* Left Info Section */}
               <div className="lg:col-span-7 flex flex-col gap-6">
-                <FadeIn delay={0.2} yOffset={30} animate={false}>
-                  <div className="bg-primary text-black p-8 md:p-10 rounded-3xl relative overflow-hidden">
-                    <p className="font-bold tracking-widest uppercase mb-4 text-sm md:text-base">
-                      Designing The Future Of Your Brand
-                    </p>
-                    <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black uppercase leading-tight md:pr-[120px]">
-                      20+ Years of Trust in Auditing & Consulting
-                    </h1>
-                    
-                    {/* Circle CTA Button */}
-                    <Link href="/contact-us" className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-[35px] w-[140px] h-[140px] lg:w-[160px] lg:h-[160px] bg-black/10 backdrop-blur-xl border-4 border-[#03060a] rounded-full items-center justify-center group hover:scale-105 transition-transform duration-300">
-                      <Image src="/img/overlay/hero-cta-text-org.png" alt="Get Started" width={110} height={110} priority className="absolute animate-[spin_40s_reverse_linear_infinite] brightness-0 invert" />
-                      <Image src="/img/overlay/hero-cta-arrow.svg" alt="Arrow" width={30} height={30} priority className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform brightness-0 invert relative z-10" />
-                    </Link>
-                  </div>
-                </FadeIn>
+                <div className="bg-primary text-black p-8 md:p-10 rounded-3xl relative overflow-hidden">
+                  <p className="font-bold tracking-widest uppercase mb-4 text-sm md:text-base">
+                    Designing The Future Of Your Brand
+                  </p>
+                  <h1 className="text-4xl md:text-5xl lg:text-[56px] font-black uppercase leading-tight md:pr-[120px]">
+                    20+ Years of Trust in Auditing & Consulting
+                  </h1>
+                  
+                  {/* Circle CTA Button */}
+                  <Link href="/contact-us" className="hidden md:flex absolute top-1/2 -translate-y-1/2 right-[35px] w-[140px] h-[140px] lg:w-[160px] lg:h-[160px] bg-black/10 backdrop-blur-xl border-4 border-[#03060a] rounded-full items-center justify-center group hover:scale-105 transition-transform duration-300">
+                    <Image src="/img/overlay/hero-cta-text-org.png" alt="Get Started" width={110} height={110} priority className="absolute animate-[spin_40s_reverse_linear_infinite] brightness-0 invert" />
+                    <Image src="/img/overlay/hero-cta-arrow.svg" alt="Arrow" width={30} height={30} priority className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform brightness-0 invert relative z-10" />
+                  </Link>
+                </div>
 
-                <FadeIn delay={0.4} yOffset={30} animate={false}>
                   <div className="relative rounded-3xl overflow-hidden h-[200px] md:h-[300px] group">
                     <div className="absolute inset-0 bg-white/30 -translate-x-[150%] rotate-[-45deg] group-hover:translate-x-[150%] transition-transform duration-1000 z-10" />
                     <Image src="/img/about/hero-img.png" alt="Team Discussion" fill priority className="object-cover" />
                   </div>
-                </FadeIn>
               </div>
 
               {/* Right Content Section */}
               <div className="lg:col-span-5 relative mt-10 lg:mt-0">
-                <FadeIn delay={0.6} yOffset={40} animate={false}>
                    {/* Background Image */}
                    <div className="relative h-[400px] md:h-[500px] lg:h-[680px] rounded-[20px] overflow-hidden hidden lg:block mb-[-250px]">
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0a1128] via-primary/20 to-transparent z-10 rounded-[20px]" />
@@ -101,7 +94,6 @@ export default function AboutUsPage() {
                        </div>
                      </div>
                    </div>
-                </FadeIn>
               </div>
 
             </div>
@@ -115,19 +107,15 @@ export default function AboutUsPage() {
               
               {/* Left Images Collage */}
               <div className="flex flex-col md:flex-row gap-6 relative justify-center">
-                <FadeIn delay={0.2} yOffset={-40} className="z-20 md:-translate-y-[60px]">
                   <div className="relative w-full md:w-[280px] h-[350px] rounded-[16px] overflow-hidden group shadow-2xl border border-white/10">
                     <div className="absolute inset-0 bg-white/30 -translate-x-[150%] rotate-[-45deg] group-hover:translate-x-[150%] transition-transform duration-1000 z-10 w-[200%]" />
                     <Image src="/img/about/purpose-1.png" alt="Charts" fill className="object-cover" />
                   </div>
-                </FadeIn>
                 
-                <FadeIn delay={0.4} yOffset={40} className="z-10">
                   <div className="relative w-full md:w-[280px] h-[350px] rounded-[16px] overflow-hidden hidden md:block group shadow-2xl border border-white/10">
                     <div className="absolute inset-0 bg-white/30 -translate-x-[150%] rotate-[-45deg] group-hover:translate-x-[150%] transition-transform duration-1000 z-10 w-[200%]" />
                     <Image src="/img/about/purpose-2.png" alt="Collaboration" fill className="object-cover" />
                   </div>
-                </FadeIn>
 
                 {/* Swinging wavy circle */}
                 <div className="absolute -bottom-10 right-1/2 translate-x-1/2 w-[180px] h-[180px] z-0 animate-[spin_90s_alternate-reverse_linear_infinite]">
@@ -137,7 +125,6 @@ export default function AboutUsPage() {
 
               {/* Right Content */}
               <div>
-                <FadeIn delay={0.2} yOffset={20}>
                   <p className="text-primary font-bold tracking-widest uppercase mb-4 text-sm">
                      Driven to Creativity
                   </p>
@@ -147,40 +134,33 @@ export default function AboutUsPage() {
                   <p className="text-lg text-white/80 leading-relaxed mb-10">
                      At Al Shamsi Auditing, we blend over 20 years of expertise with cutting-edge tools and a deep understanding of accounting, tax, and consultancy. Our goal is to add value beyond compliance—helping businesses make informed decisions and achieve sustainable growth.
                   </p>
-                </FadeIn>
 
                 {/* Statistics */}
                 <div className="flex flex-wrap gap-8 mb-10 border-t border-white/10 pt-10">
-                  <FadeIn delay={0.3} yOffset={20} className="flex-1 min-w-[120px] text-center md:text-left border-r border-white/10 pr-4 last:border-0 last:pr-0">
                     <div className="text-4xl md:text-5xl font-black text-white mb-2">
                        <CounterUp endAmount={500} duration={2} />
                        <span className="text-primary ml-1">+</span>
                     </div>
                     <p className="text-white/70 font-semibold uppercase text-sm tracking-wide">Satisfied Clients</p>
-                  </FadeIn>
                   
-                  <FadeIn delay={0.4} yOffset={20} className="flex-1 min-w-[120px] text-center md:text-left border-r border-white/10 pr-4 last:border-0 last:pr-0">
                     <div className="text-4xl md:text-5xl font-black text-white mb-2">
                        <CounterUp endAmount={20} duration={2} />
                        <span className="text-primary ml-1">+</span>
                     </div>
                     <p className="text-white/70 font-semibold uppercase text-sm tracking-wide">Years Experience</p>
-                  </FadeIn>
 
-                  <FadeIn delay={0.5} yOffset={20} className="flex-1 min-w-[120px] text-center md:text-left">
                     <div className="text-4xl md:text-5xl font-black text-white mb-2">
                        <CounterUp endAmount={100} duration={2} />
                        <span className="text-primary ml-1">+</span>
                     </div>
                     <p className="text-white/70 font-semibold uppercase text-sm tracking-wide">Projects Done</p>
-                  </FadeIn>
                 </div>
 
-                <FadeIn delay={0.6} yOffset={20}>
-                  <Link href="/contact-us">
-                     <ButtonBase>Book A Consultation</ButtonBase>
-                  </Link>
-                </FadeIn>
+                  <div className="mt-12">
+                     <Link href="/contact-us">
+                        <ButtonBase>Book A Consultation</ButtonBase>
+                     </Link>
+                  </div>
               </div>
 
             </div>
@@ -194,19 +174,13 @@ export default function AboutUsPage() {
           
           <div className="container mx-auto px-4 max-w-7xl">
             <div className="flex flex-col items-center mb-20 text-center">
-              <FadeIn delay={0.2} yOffset={20}>
                 <p className="text-primary font-bold tracking-widest uppercase mb-4">Strategic Financial Solutions</p>
-              </FadeIn>
-              <FadeIn delay={0.3} yOffset={30}>
                 <h2 className="text-3xl md:text-5xl font-extrabold uppercase text-thm">
                   Expert Financial Services <br className="hidden md:block"/> for Modern Businesses
                 </h2>
-              </FadeIn>
             </div>
             
-            <FadeIn yOffset={40}>
               <ServicesList include={['virtual-cfo', 'internal-audit', 'corporate-tax']} />
-            </FadeIn>
           </div>
         </section>
 

@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import { cache } from 'react';
 
 const rootDirectory = path.join(process.cwd(), 'content', 'articles');
 
@@ -31,7 +32,7 @@ function getReadingTime(content: string): string {
 }
 
 // Get a single post by slug
-export async function getPostBySlug(slug: string): Promise<Post | null> {
+export const getPostBySlug = cache(async (slug: string): Promise<Post | null> => {
   try {
     const realSlug = slug.replace(/\.mdx$/, '');
     const fullPath = path.join(rootDirectory, `${realSlug}.mdx`);
@@ -68,10 +69,10 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     console.error(`Error loading post ${slug}:`, error);
     return null;
   }
-}
+});
 
 // Get all posts meta for the index page and sitemap
-export async function getAllPostsMeta(): Promise<PostMeta[]> {
+export const getAllPostsMeta = cache(async (): Promise<PostMeta[]> => {
   try {
     if (!fs.existsSync(rootDirectory)) {
       return [];
@@ -99,4 +100,4 @@ export async function getAllPostsMeta(): Promise<PostMeta[]> {
     console.error('Error reading posts:', error);
     return [];
   }
-}
+});

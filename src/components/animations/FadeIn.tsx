@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface FadeInProps {
@@ -12,31 +9,19 @@ interface FadeInProps {
   animate?: boolean;
 }
 
+/**
+ * FadeIn Component (Inert Version)
+ * 
+ * To restore animations:
+ * 1. Add "use client" at the top
+ * 2. Import { motion } from "framer-motion"
+ * 3. Replace the return with a <motion.div> using initial/whileInView props.
+ */
 export function FadeIn({
   children,
-  delay = 0,
-  duration = 0.5,
   className = "",
-  yOffset = 50,
-  animate = true,
 }: FadeInProps) {
-  if (!animate) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px" }}
-      transition={{
-        duration: duration,
-        delay: delay,
-        ease: "easeOut",
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  // Animations disabled globally to fix hydration errors and performance issues.
+  // Returning a plain div ensures zero mismatch between server and client.
+  return <div className={className}>{children}</div>;
 }

@@ -5,7 +5,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ServiceSidebar } from "@/components/front/service/ServiceSidebar";
 import { ButtonBase } from "@/components/ui/ButtonBase";
-import { FadeIn } from "@/components/animations/FadeIn";
 import { ServiceQuoteBanner } from "@/components/ui/ServiceQuoteBanner";
 import { ServicePageCTA } from "@/components/ui/ServicePageCTA";
 import Image from "next/image";
@@ -122,8 +121,6 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
 
               {/* Main Content */}
               <div className="lg:col-span-2">
-                <FadeIn yOffset={40}>
-                  
                   {service.featuredImage && service.featuredImage.trim() !== "" && (
                      <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12 shadow-md">
                        <Image
@@ -145,8 +142,6 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
                   />
 
                   <ServicePageCTA />
-
-                </FadeIn>
               </div>
             </div>
           </div>

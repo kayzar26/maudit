@@ -3,7 +3,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
-import { FadeIn } from "@/components/animations/FadeIn";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
@@ -69,20 +68,16 @@ export default function FAQPage() {
 
         <section className="py-24 md:py-40 bg-zinc-50">
           <div className="container mx-auto px-4 max-w-4xl">
-            <FadeIn yOffset={30}>
               <div className="text-center mb-16">
                 <p className="text-primary font-bold tracking-widest uppercase mb-4">Got Questions?</p>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-thm uppercase tracking-tight">
                   Frequently Asked Questions
                 </h1>
               </div>
-            </FadeIn>
 
             <div className="flex flex-col gap-4">
               {faqs.map((faq, idx) => (
-                <FadeIn key={idx} delay={0.05 * Math.min(idx, 6)} yOffset={20}>
-                  <FAQAccordion question={faq.question} answer={faq.answer} />
-                </FadeIn>
+                  <FAQAccordion key={idx} question={faq.question} answer={faq.answer} />
               ))}
             </div>
           </div>

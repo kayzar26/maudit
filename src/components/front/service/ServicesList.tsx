@@ -123,9 +123,7 @@ export function ServicesList({ include }: { include?: string[] }) {
   return (
     <div className="w-full text-secondary">
       {displayServices.map((item, index) => (
-        <FadeIn key={item.slug} delay={index * 0.1} yOffset={30}>
-          <ServiceItem item={item} index={index + 1} />
-        </FadeIn>
+        <ServiceItem key={item.slug} item={item} index={index + 1} />
       ))}
     </div>
   );
@@ -140,13 +138,21 @@ function ServiceItem({ item, index }: { item: typeof allServicesData[0]; index: 
     const el = itemRef.current;
     if (!el) return;
 
+    let ticking = false;
     const handleMouseMove = (e: MouseEvent) => {
       if (!imgRef.current) return;
-      const rect = el.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-      imgRef.current.style.transform = `translate(-50%, -50%) translate(${x * 60}px, ${y * 40}px) rotate(${x * 10}deg)`;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = el.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          if (imgRef.current) {
+            imgRef.current.style.transform = `translate(-50%, -50%) translate(${x * 60}px, ${y * 40}px) rotate(${x * 10}deg)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     const handleMouseLeave = () => {
