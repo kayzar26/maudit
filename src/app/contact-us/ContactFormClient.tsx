@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { ButtonBase } from "@/components/ui/ButtonBase";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export function ContactFormClient() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -21,13 +22,10 @@ export function ContactFormClient() {
       });
       
       // Tracking: Contact form conversion for Google Ads/GTM
-      if (typeof window !== "undefined") {
-        (window as any).dataLayer = (window as any).dataLayer || [];
-        (window as any).dataLayer.push({
-          event: "conversion_form_submit",
-          form_name: "Contact Us Page Form",
-        });
-      }
+      sendGTMEvent({
+        event: "contact_form_submit",
+        form_name: "Contact Us Page Form",
+      });
 
       setStatus("success");
       form.reset();

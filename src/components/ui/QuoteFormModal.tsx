@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 interface QuoteFormModalProps {
   isOpen: boolean;
@@ -54,14 +55,11 @@ export function QuoteFormModal({ isOpen, onClose }: QuoteFormModalProps) {
       });
 
       // Tracking: Quote form conversion for Google Ads/GTM
-      if (typeof window !== "undefined") {
-        (window as any).dataLayer = (window as any).dataLayer || [];
-        (window as any).dataLayer.push({
-          event: "conversion_quote_request",
-          form_name: "Quote Request Form",
-          service_requested: formData.serviceType
-        });
-      }
+      sendGTMEvent({
+        event: "quote_form_submit",
+        form_name: "Quote Request Form",
+        service_requested: formData.serviceType
+      });
 
       setStatus("success");
       setFormData({ name: "", email: "", mobile: "", serviceType: "", comments: "" });
