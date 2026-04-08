@@ -9,6 +9,9 @@ import { ContactFormClient } from "./ContactFormClient";
 export const metadata: Metadata = {
   title: "Contact Us | Maudit | Audit & Assurance in Dubai",
   description: "Get in touch with Maudit for professional auditing, accounting, and tax consultancy services in the UAE. Our team is ready to assist you.",
+  alternates: {
+    canonical: "/contact-us",
+  },
 };
 
 export default function ContactUsPage() {

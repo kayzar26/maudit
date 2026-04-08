@@ -33,17 +33,13 @@ export const metadata: Metadata = {
     title: "Majed Alshamsi Auditing",
     description: "Leading audit and accounting firm in Dubai, UAE.",
   },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 import { StickyWhatsAppButton } from "@/components/ui/StickyWhatsAppButton";
 import { StickyCallButton } from "@/components/ui/StickyCallButton";
 import Script from "next/script";
 
-// REPLACE THIS WITH YOUR ACTUAL GTM ID (e.g., GTM-XXXXXXX)
-const GTM_ID = "GTM-XXXXXXX";
+const GTM_ID = "GTM-TVM8TP96";
 
 export default function RootLayout({
   children,

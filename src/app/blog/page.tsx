@@ -11,6 +11,9 @@ import { FadeIn } from "@/components/animations/FadeIn";
 export const metadata: Metadata = {
   title: "Blog & Insights | Maudit",
   description: "Read the latest news, insights, and updates about auditing, accounting, VAT, and corporate tax in the UAE.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 // Cache for 1 day — blog content rarely changes. Zero function cost between rebuilds.

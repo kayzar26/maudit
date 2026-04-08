@@ -65,7 +65,8 @@ export function proxy(request: NextRequest) {
   }
 
   // ── 2. Block by file extension probing ────────────────────────────────────
-  if (BLOCKED_EXTENSIONS.test(pathname)) {
+  // Exclude legitimate SEO files like sitemap.xml from the block
+  if (BLOCKED_EXTENSIONS.test(pathname) && !pathname.endsWith("sitemap.xml")) {
     return new NextResponse("Forbidden", { status: 403 });
   }
 

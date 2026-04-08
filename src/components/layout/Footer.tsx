@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Twitter, Instagram, Linkedin, Phone, MapPin, Mail } from "lucide-react";
 import { ButtonBase } from "@/components/ui/ButtonBase";
-import { NewsletterForm } from "./NewsletterForm";
+
 
 export function Footer() {
   return (
@@ -82,12 +82,7 @@ export function Footer() {
                 </li>
               </ul>
             </div>
-
-            {/* Newsletter */}
-            <div>
-              <h3 className="text-xl font-bold mb-6">Join Newsletter</h3>
-              <NewsletterForm />
-            </div>
+{/* newsletter existed here */}
           </div>
         </div>
       </div>

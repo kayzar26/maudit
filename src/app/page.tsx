@@ -11,6 +11,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
 import { getAllPostsMeta } from "@/lib/mdx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Majed Alshamsi Auditing | Best Auditing Firm in Dubai",
+  description: "Majed Alshamsi Auditing is a leading audit and accounting firm in Dubai, UAE providing top tier financial services, bookkeeping, VAT consulting, audit and more.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Home() {
   const latestPosts = (await getAllPostsMeta()).slice(0, 3);
@@ -45,13 +54,14 @@ export default async function Home() {
               <div className="lg:w-1/3 flex justify-center lg:justify-end relative">
                   <Image 
                     src="/img/overlay/hero-circle-shape.webp" 
-                    alt="Sphere" 
+                    alt="Sphere"
                     width={450} 
                     height={450} 
                     priority
                     fetchPriority="high"
                     sizes="(max-width: 768px) 340px, 450px"
                     className="w-[340px] md:w-[450px] animate-[spin_40s_linear_infinite]" 
+                    unoptimized
                   />
                   
                   <Link 
@@ -94,6 +104,7 @@ export default async function Home() {
                    fetchPriority="high"
                    sizes="100vw"
                    className="w-full h-[300px] md:h-auto object-cover rounded-2xl md:rounded-none" 
+                   unoptimized
                  />
                  <Image 
                    src="/img/overlay/edge-cut.webp" 
