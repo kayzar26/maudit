@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Maudit | Majed Alshamsi Auditing",
+  title: "Terms & Conditions | Maudit",
   description: "Read the Terms and Conditions for using the Majed Alshamsi Auditing website. Understand your rights and obligations.",
   alternates: {
     canonical: "/terms-and-conditions",

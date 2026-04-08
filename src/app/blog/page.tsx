@@ -9,7 +9,7 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/animations/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Blog & Insights | Maudit",
+  title: "Blog | Maudit",
   description: "Read the latest news, insights, and updates about auditing, accounting, VAT, and corporate tax in the UAE.",
   alternates: {
     canonical: "/blog",

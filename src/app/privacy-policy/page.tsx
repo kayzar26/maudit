@@ -4,7 +4,7 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Maudit | Majed Alshamsi Auditing",
+  title: "Privacy Policy | Maudit",
   description: "Read the Privacy Policy for Majed Alshamsi Auditing. Learn how we collect, use, and protect your personal information.",
   alternates: {
     canonical: "/privacy-policy",

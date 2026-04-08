@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
-  title: "Services | Maudit | Audit & Assurance in Dubai",
+  title: "Services | Maudit",
   description: "Explore Maudit's comprehensive auditing, accounting, tax, and consulting services tailored for businesses across every sector in the UAE.",
   alternates: {
     canonical: "/services",

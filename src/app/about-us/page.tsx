@@ -12,7 +12,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Us | Maudit | Majed Alshamsi Auditing",
+  title: "About Us | Maudit",
   description: "Learn more about Majed Alshamsi Auditing. 20+ years of trust in auditing, tax consulting, and business advisory in Dubai.",
   alternates: {
     canonical: "/about-us",
