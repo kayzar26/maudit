@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { DM_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { StickyWhatsAppButton } from "@/components/ui/StickyWhatsAppButton";
+import { StickyCallButton } from "@/components/ui/StickyCallButton";
+import Script from "next/script";
+
+const GTM_ID = "GTM-TVM8TP96";
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -34,12 +39,6 @@ export const metadata: Metadata = {
     description: "Leading audit and accounting firm in Dubai, UAE.",
   },
 };
-
-import { StickyWhatsAppButton } from "@/components/ui/StickyWhatsAppButton";
-import { StickyCallButton } from "@/components/ui/StickyCallButton";
-import { GoogleTagManager } from "@next/third-parties/google";
-
-const GTM_ID = "GTM-TVM8TP96";
 
 export default function RootLayout({
   children,
@@ -83,11 +82,31 @@ export default function RootLayout({
         className={`${dmSans.variable} ${plusJakartaSans.variable} antialiased`}
         suppressHydrationWarning
       >
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer', '${GTM_ID}');
+            `,
+          }}
+        />
         {children}
         <StickyWhatsAppButton />
         <StickyCallButton />
       </body>
-      <GoogleTagManager gtmId={GTM_ID} />
     </html>
   );
 }
