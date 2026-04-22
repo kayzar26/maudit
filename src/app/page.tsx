@@ -1,11 +1,13 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ButtonBase } from "@/components/ui/ButtonBase";
-import { ServicesMarquee } from "@/components/front/slider/ServicesMarquee";
-import { ServicesList } from "@/components/front/service/ServicesList";
-import { TeamSection } from "@/components/front/team/TeamSection";
-import { TestimonialSection } from "@/components/front/testimonial/TestimonialSection";
-import { BlogCard } from "@/components/front/blog/BlogCard";
+import dynamic from "next/dynamic";
+
+const ServicesMarquee = dynamic(() => import("@/components/front/slider/ServicesMarquee").then((mod) => mod.ServicesMarquee));
+const ServicesList = dynamic(() => import("@/components/front/service/ServicesList").then((mod) => mod.ServicesList));
+const TeamSection = dynamic(() => import("@/components/front/team/TeamSection").then((mod) => mod.TeamSection));
+const TestimonialSection = dynamic(() => import("@/components/front/testimonial/TestimonialSection").then((mod) => mod.TestimonialSection));
+const BlogCard = dynamic(() => import("@/components/front/blog/BlogCard").then((mod) => mod.BlogCard));
 import { CounterUp } from "@/components/front/counter-up/CounterUp";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,8 +32,8 @@ export default async function Home() {
       
       <main className="flex-grow">
         <section className="relative -mt-[80px] pt-48 pb-20 min-h-screen overflow-hidden bg-gradient-to-b from-thm via-thm-accent/65 to-thm text-white flex flex-col justify-center">
-          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-          <div className="absolute left-0 -translate-x-[60%] w-[300px] h-[400px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/20 rounded-full blur-[60px] pointer-events-none" />
+          <div className="absolute left-0 -translate-x-[60%] w-[300px] h-[400px] bg-primary/20 rounded-full blur-[60px] pointer-events-none" />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="flex flex-col lg:flex-row items-center justify-between pb-20">
@@ -42,10 +44,10 @@ export default async function Home() {
                 </div>
                 <h1 className="text-5xl md:text-7xl lg:text-[72px] uppercase font-extrabold leading-tight tracking-tight">
                   Auditing 
-                  <Image src="/img/overlay/four-leave.webp" alt="Shape" width={65} height={65} className="inline-block mx-3 -mt-4 animate-[spin_20s_linear_infinite]" />
+                  <Image src="/img/overlay/four-leave.webp" alt="Shape" width={65} height={65} priority className="inline-block mx-3 -mt-4 animate-[spin_20s_linear_infinite]" />
                   Services <br />
                   <span className="hidden md:inline-block bg-white/10 border-2 border-primary rounded-full px-4 py-2 mr-3 -mt-2">
-                     <Image src="/img/overlay/clients.webp" alt="Clients" width={110} height={40} className="object-contain" />
+                     <Image src="/img/overlay/clients.webp" alt="Clients" width={110} height={40} priority className="object-contain" />
                   </span>
                   to Drive Growth
                 </h1>
@@ -57,11 +59,8 @@ export default async function Home() {
                     alt="Sphere"
                     width={450} 
                     height={450} 
-                    priority
-                    fetchPriority="high"
                     sizes="(max-width: 768px) 340px, 450px"
                     className="w-[340px] md:w-[450px] animate-[spin_40s_linear_infinite]" 
-                    unoptimized
                   />
                   
                   <Link 
@@ -102,9 +101,8 @@ export default async function Home() {
                    height={500} 
                    priority 
                    fetchPriority="high"
-                   sizes="100vw"
+                   sizes="(max-width: 768px) 100vw, 1200px"
                    className="w-full h-[300px] md:h-auto object-cover rounded-2xl md:rounded-none" 
-                   unoptimized
                  />
                  <Image 
                    src="/img/overlay/edge-cut.webp" 
